@@ -1,0 +1,555 @@
+// ── Clean LeetCode Dark Theme (Neutral Grays + LeetCode Green Text) ───────────
+$bg-app:         #141414;
+$bg-surface:     #1a1a1a;
+$bg-panel:       #202020;
+$bg-card:        #1d1d1d;
+$bg-card-hover:  #242424;
+$bg-code:        #161616;
+$border-main:    #2a2a2a;
+$border-light:   #333333;
+
+$text-primary:   #eff1f6;
+$text-secondary: #909090;
+$text-dim:       #666666;
+
+$lc-green:       #2cbb5d;
+$lc-yellow:      #ffc01e;
+$lc-red:         #ef4743;
+$lc-orange:      #ffa116;
+
+$font-sans:      'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-mono:      'Fira Code', 'JetBrains Mono', Consolas, monospace;
+
+// ── Page Shell ───────────────────────────────────────────────────────────────
+.interview-page {
+  width: 100%;
+  min-height: calc(100vh - 50px);
+  background-color: $bg-app;
+  color: $text-primary;
+  font-family: $font-sans;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 1.5rem 3rem;
+  box-sizing: border-box;
+}
+
+// ── Top Action Breadcrumb Bar ────────────────────────────────────────────────
+.interview-topbar {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  .topbar-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: $text-secondary;
+
+    a {
+      color: $text-dim;
+      text-decoration: none;
+      transition: color 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+
+      &:hover {
+        color: $text-primary;
+      }
+    }
+
+    .crumb-sep {
+      color: $border-light;
+      font-family: $font-mono;
+    }
+
+    .crumb-current {
+      color: $text-primary;
+      font-weight: 500;
+    }
+  }
+
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+}
+
+// ── 3-Column Problem Workspace Layout ─────────────────────────────────────────
+.interview-layout {
+  display: flex;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  background-color: $bg-surface;
+  border: 1px solid $border-main;
+  border-radius: 8px;
+  min-height: calc(100vh - 140px);
+  overflow: hidden;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
+}
+
+.interview-divider {
+  width: 1px;
+  background-color: $border-main;
+  flex-shrink: 0;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+    height: 1px;
+  }
+}
+
+// ── Left Nav ─────────────────────────────────────────────────────────────────
+.interview-nav {
+  width: 240px;
+  flex-shrink: 0;
+  padding: 1.25rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  background-color: #171717;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+    padding: 0.85rem;
+  }
+
+  .nav-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  &__label {
+    font-size: 0.7rem;
+    font-family: $font-mono;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $text-dim;
+    padding: 0 0.65rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.55rem 0.75rem;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    color: $text-secondary;
+    font-family: $font-sans;
+    font-size: 0.825rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.15s ease, color 0.15s ease;
+
+    .item-left {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    &:hover {
+      background-color: $bg-panel;
+      color: $text-primary;
+    }
+
+    &--active {
+      background-color: #262626;
+      color: #eff1f6;
+      border-color: #383838;
+      font-weight: 600;
+
+      .interview-nav__icon svg {
+        stroke: #eff1f6;
+      }
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+
+    svg {
+      stroke: $text-dim;
+    }
+  }
+
+  .track-badge {
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    background: #232323;
+    color: $text-dim;
+  }
+}
+
+// ── Center Content Area ───────────────────────────────────────────────────────
+.interview-content {
+  flex: 1;
+  padding: 1.5rem 1.75rem;
+  overflow-y: auto;
+  background-color: $bg-surface;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+
+  .content-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid $border-main;
+
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: $text-primary;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .header-icon {
+        color: $text-dim;
+      }
+    }
+
+    &__count {
+      font-family: $font-mono;
+      font-size: 0.75rem;
+      color: $text-dim;
+    }
+  }
+}
+
+// ── Question Cards ───────────────────────────────────────────────────────────
+.q-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.q-card {
+  background-color: $bg-card;
+  border: 1px solid $border-main;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    border-color: #383838;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.15rem;
+    cursor: pointer;
+    gap: 0.85rem;
+    user-select: none;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+  }
+
+  // Plain text question number like LeetCode
+  &__index {
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: $lc-green;
+    flex-shrink: 0;
+  }
+
+  &__question {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $text-primary;
+    margin: 0;
+    line-height: 1.45;
+  }
+
+  &__chevron {
+    color: $text-dim;
+    display: flex;
+    align-items: center;
+    transition: transform 0.15s ease;
+
+    &--open {
+      transform: rotate(180deg);
+      color: $text-primary;
+    }
+  }
+
+  &__body {
+    padding: 0.85rem 1.15rem 1.15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    border-top: 1px solid $border-main;
+    background-color: #161616;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+
+    p {
+      margin: 0;
+      font-size: 0.825rem;
+      line-height: 1.6;
+      color: #cfcfd8;
+    }
+  }
+
+  // Plain text tag like LeetCode
+  &__tag {
+    align-self: flex-start;
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    &--intention {
+      color: $text-secondary;
+    }
+
+    &--answer {
+      color: $lc-green;
+    }
+  }
+
+  .answer-box {
+    background-color: $bg-code;
+    border: 1px solid $border-main;
+    border-radius: 6px;
+    padding: 0.75rem 0.85rem;
+    font-family: $font-mono;
+    font-size: 0.8rem;
+    line-height: 1.55;
+    color: #dedee6;
+  }
+}
+
+// ── Preparation Roadmap ──────────────────────────────────────────────────────
+.roadmap-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.roadmap-day {
+  background-color: $bg-card;
+  border: 1px solid $border-main;
+  border-radius: 6px;
+  padding: 1rem 1.15rem;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 0.65rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid $border-main;
+  }
+
+  &__badge {
+    font-family: $font-mono;
+    font-size: 0.725rem;
+    font-weight: 600;
+    color: $lc-green;
+    background: transparent;
+  }
+
+  &__focus {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $text-primary;
+    margin: 0;
+  }
+
+  &__tasks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      font-size: 0.8rem;
+      color: #b8b8c5;
+      line-height: 1.5;
+    }
+  }
+
+  &__bullet {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: $lc-green;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+}
+
+// ── Right Sidebar ─────────────────────────────────────────────────────────────
+.interview-sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: #171717;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+.sidebar-divider {
+  height: 1px;
+  background-color: $border-main;
+  width: 100%;
+}
+
+// ── Match Score Gauge (LeetCode Clean Rating) ─────────────────────────────────
+.match-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+
+  &__label {
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $text-dim;
+    margin: 0;
+  }
+
+  &__ring {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    border: 3px solid #333333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $bg-panel;
+
+    &.score--high {
+      border-color: #383838;
+      .match-score__value { color: $lc-green; }
+    }
+
+    &.score--mid {
+      border-color: #383838;
+      .match-score__value { color: $lc-yellow; }
+    }
+
+    &.score--low {
+      border-color: #383838;
+      .match-score__value { color: $lc-red; }
+    }
+  }
+
+  &__value {
+    font-family: $font-mono;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $lc-green;
+    line-height: 1;
+  }
+
+  &__pct {
+    font-family: $font-mono;
+    font-size: 0.65rem;
+    color: $text-dim;
+    margin-top: 2px;
+  }
+
+  &__sub {
+    margin: 0;
+    font-size: 0.75rem;
+    color: $text-secondary;
+  }
+}
+
+// ── Skill Gaps (Plain text tags) ──────────────────────────────────────────────
+.skill-gaps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+
+  &__label {
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $text-dim;
+    margin: 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+}
+
+.skill-tag {
+  font-family: $font-mono;
+  font-size: 0.725rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background-color: #222222;
+  border: 1px solid $border-main;
+  cursor: default;
+
+  &--high {
+    color: $lc-red;
+  }
+
+  &--medium {
+    color: $lc-yellow;
+  }
+
+  &--low {
+    color: $lc-green;
+  }
+}

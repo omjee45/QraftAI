@@ -1,0 +1,144 @@
+.study-navbar {
+  width: 100%;
+  height: 50px;
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    text-decoration: none;
+    color: #eff1f6;
+
+    .brand-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 4px;
+      background: #262626;
+      border: 1px solid #383838;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffa116;
+      font-weight: 700;
+      font-family: var(--font-mono, monospace);
+      font-size: 0.8rem;
+    }
+
+    .brand-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+  }
+
+  &__nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__link {
+    color: #909090;
+    text-decoration: none;
+    font-size: 0.825rem;
+    font-weight: 500;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+
+    &:hover {
+      color: #eff1f6;
+      background: #242424;
+    }
+
+    &--active {
+      color: #eff1f6;
+      background: #262626;
+      font-weight: 500;
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  &__user-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: #222222;
+    border: 1px solid #303030;
+    padding: 0.2rem 0.65rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: #c5c5d0;
+
+    .user-avatar {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #2cbb5d;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.6rem;
+      font-weight: 700;
+    }
+
+    .user-name {
+      max-width: 120px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-family: var(--font-mono, monospace);
+    }
+  }
+
+  &__logout-btn {
+    background: transparent;
+    border: 1px solid #303030;
+    color: #909090;
+    border-radius: 4px;
+    padding: 0.25rem 0.55rem;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+
+    &:hover {
+      background: #242424;
+      color: #ef4743;
+    }
+  }
+}

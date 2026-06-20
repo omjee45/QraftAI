@@ -1,0 +1,80 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid #383838;
+  outline: none;
+  padding: 0.5rem 1.15rem;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: #262626;
+  color: #eff1f6;
+
+  // LeetCode Submit Style: Dark button with clean green text
+  &.primary-button,
+  &.submit-button {
+    background-color: #262626;
+    color: #2cbb5d;
+    border-color: #383838;
+
+    &:hover:not(:disabled) {
+      background-color: #303030;
+      border-color: #484848;
+      color: #33cf67;
+    }
+
+    &:active:not(:disabled) {
+      background-color: #1e1e1e;
+    }
+  }
+
+  &.secondary-button {
+    background-color: #1f1f1f;
+    color: #c5c5d0;
+    border-color: #303030;
+
+    &:hover:not(:disabled) {
+      background-color: #282828;
+      border-color: #3f3f3f;
+      color: #ffffff;
+    }
+  }
+
+  &.ghost-button {
+    background: transparent;
+    color: #909090;
+    border-color: transparent;
+
+    &:hover:not(:disabled) {
+      background: #262626;
+      color: #eff1f6;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner-icon {
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
