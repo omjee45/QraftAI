@@ -85,7 +85,11 @@ async function generatePdfFromHtml(htmlContent) {
             "--no-sandbox",
             "--disable-setuid-sandbox",
             "--disable-dev-shm-usage",
-            "--no-zygote"
+            "--disable-accelerated-2d-canvas",
+            "--disable-gpu",
+            "--no-first-run",
+            "--no-zygote",
+            "--single-process"
         ]
     })
 
