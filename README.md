@@ -5,7 +5,6 @@
 [![Stack](https://img.shields.io/badge/Stack-MERN-blue?style=flat-square)](#)
 [![AI Engine](https://img.shields.io/badge/AI-Google_Gemini-orange?style=flat-square)](#)
 [![PDF Engine](https://img.shields.io/badge/PDF-Puppeteer-green?style=flat-square)](#)
-[![Format](https://img.shields.io/badge/Architecture-Zod_Structured_Schema-purple?style=flat-square)](#)
 [![License](https://img.shields.io/badge/license-MIT-lightgrey?style=flat-square)](#)
 
 [🚀 Quick Start](#-quick-start) &bull; [🧩 How It Works](#-how-it-works) &bull; [💡 What It Does](#-what-it-does) &bull; [⚙️ API Workflow](#️-api-workflow)
